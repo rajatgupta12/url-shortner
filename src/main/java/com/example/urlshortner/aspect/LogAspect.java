@@ -1,6 +1,6 @@
 package com.example.urlshortner.aspect;
 
-import com.example.urlshortner.dto.BaseResponse;
+import com.example.urlshortner.dto.response.BaseResponse;
 import com.example.urlshortner.exception.UrlShortnerException;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;

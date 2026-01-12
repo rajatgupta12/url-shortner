@@ -1,9 +1,8 @@
 package com.example.urlshortner.controller;
 
-import com.example.urlshortner.dto.BaseError;
-import com.example.urlshortner.dto.BaseResponse;
-import com.example.urlshortner.dto.UrlMappingResponse;
-import com.example.urlshortner.dto.UrlRequest;
+import com.example.urlshortner.dto.response.BaseResponse;
+import com.example.urlshortner.dto.response.UrlMappingResponse;
+import com.example.urlshortner.dto.request.UrlRequest;
 import com.example.urlshortner.service.UrlMappingService;
 import io.swagger.v3.oas.annotations.Hidden;
 import lombok.RequiredArgsConstructor;

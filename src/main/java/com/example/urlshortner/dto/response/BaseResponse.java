@@ -1,7 +1,7 @@
-package com.example.urlshortner.dto;
+package com.example.urlshortner.dto.response;
 
+import com.example.urlshortner.dto.error.BaseError;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

@@ -1,7 +1,7 @@
 package com.example.urlshortner.exception;
 
-import com.example.urlshortner.dto.BaseError;
-import com.example.urlshortner.dto.BaseResponse;
+import com.example.urlshortner.dto.error.BaseError;
+import com.example.urlshortner.dto.response.BaseResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

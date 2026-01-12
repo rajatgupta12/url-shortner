@@ -1,0 +1,18 @@
+package com.example.urlshortner.dto.request;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import lombok.Data;
+
+@Data
+public class SignupRequest {
+    @NotBlank
+    private String userName;
+
+    @Size(min = 8)
+    private String password;
+
+    @Email
+    private String email;
+}

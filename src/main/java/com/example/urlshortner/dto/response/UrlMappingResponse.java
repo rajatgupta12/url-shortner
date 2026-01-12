@@ -1,4 +1,4 @@
-package com.example.urlshortner.dto;
+package com.example.urlshortner.dto.response;
 
 import lombok.Builder;
 import lombok.Getter;

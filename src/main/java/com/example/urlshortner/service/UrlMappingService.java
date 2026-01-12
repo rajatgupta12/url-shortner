@@ -1,9 +1,9 @@
 package com.example.urlshortner.service;
 
-import com.example.urlshortner.dto.UrlMappingResponse;
+import com.example.urlshortner.dto.response.UrlMappingResponse;
 import com.example.urlshortner.exception.UrlShortnerException;
 import com.example.urlshortner.model.UrlMapping;
-import com.example.urlshortner.repo.UrlMappingRepository;
+import com.example.urlshortner.repository.UrlMappingRepository;
 import com.example.urlshortner.util.Base62Encoder;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
