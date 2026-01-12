@@ -110,3 +110,11 @@ Interpreting the redirect response (example raw headers):
 HTTP/1.1 301 Moved Permanently
 Location: https://example.com/some/very/long/path
 Content-Length: 0
+
+<b>TODOs</b>
+
+- Add email verification while signing up
+  - Send a verification email with a time-limited token when users register; expose a `/verify?token=...` endpoint to confirm accounts. Support configurable SMTP or an external provider (SendGrid, SES).
+
+- Cache implementation
+  - Add caching for URL lookups and Hi‑Lo allocations to reduce DB load. Recommended: Spring Cache abstraction with Redis (replicated/clustered in production), TTLs on entries, and cache invalidation on updates.
