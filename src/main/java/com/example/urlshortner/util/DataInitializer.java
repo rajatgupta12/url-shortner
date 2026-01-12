@@ -4,8 +4,7 @@ import com.example.urlshortner.model.Role;
 import com.example.urlshortner.model.User;
 import com.example.urlshortner.repository.RoleRepository;
 import com.example.urlshortner.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
+import com.example.urlshortner.service.CachedPropertyService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -14,11 +13,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import static com.example.urlshortner.UrlShortenerConstants.ADMIN;
-import static com.example.urlshortner.UrlShortenerConstants.USER;
+import static com.example.urlshortner.UrlShortenerConstants.*;
 
 @Component
-@RequiredArgsConstructor
 public class DataInitializer implements CommandLineRunner {
 
     private final UserRepository userRepository;
@@ -27,10 +24,17 @@ public class DataInitializer implements CommandLineRunner {
 
     public static final Map<String, Role> roles = new HashMap<>();
 
-    @Value("${admin.username}")
-    private String adminUsername;
-    @Value("${admin.password}")
-    private String adminPassword;
+    private final String adminUsername;
+    private final String adminPassword;
+
+    public DataInitializer(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder,
+                           CachedPropertyService cachedPropertyService) {
+        this.roleRepository = roleRepository;
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.adminUsername = cachedPropertyService.getAppProperty(ADMIN_USERNAME).getValue();
+        this.adminPassword = cachedPropertyService.getAppProperty(ADMIN_PASSWORD).getValue();
+    }
 
     @Override
     public void run(String... args) throws Exception {

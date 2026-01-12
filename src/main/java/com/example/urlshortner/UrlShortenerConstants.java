@@ -17,5 +17,12 @@ public class UrlShortenerConstants {
     public static final String AUTHORITY = "authority";
 
     public static final String ACCESS_TOKEN = "access_token";
-    public static final String REFRESH_TOKEN = "refresh_token";
+
+    public static final String JWT_EXPIRATION = "jwt.expiration";
+    public static final String JWT_SECRET = "jwt.secret";
+
+    public static final String ADMIN_USERNAME = "admin.username";
+    public static final String ADMIN_PASSWORD = "admin.password";
+
+    public static final String UNPROTECTED_PATHS = "unprotected.paths";
 }

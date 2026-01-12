@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.Hidden;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -19,8 +20,8 @@ public class UrlMappingController {
     private final UrlMappingService urlMappingService;
 
     @PostMapping("/url")
-    public BaseResponse<UrlMappingResponse> createURLMapping(@RequestBody UrlRequest urlRequest) {
-        UrlMappingResponse response = urlMappingService.createUrlMapping(urlRequest.getUrl());
+    public BaseResponse<UrlMappingResponse> createURLMapping(@RequestBody UrlRequest urlRequest, Authentication authentication) {
+        UrlMappingResponse response = urlMappingService.createUrlMapping(urlRequest.getUrl(), authentication.getName());
         return new BaseResponse<>(response);
     }
 

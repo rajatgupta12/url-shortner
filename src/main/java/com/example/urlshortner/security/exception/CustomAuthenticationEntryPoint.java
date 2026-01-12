@@ -17,7 +17,7 @@ public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint 
         response.setContentType("application/json");
         response.getWriter().write("""
             {
-              "error": "Unauthorized",
+              "error": "Unauthenticated",
               "message": "Authentication required"
             }
         """);

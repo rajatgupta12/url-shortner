@@ -4,7 +4,6 @@ import com.example.urlshortner.security.userDetails.JwtUserDetails;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import jakarta.annotation.PostConstruct;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
@@ -17,17 +16,19 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static com.example.urlshortner.UrlShortenerConstants.AUTHORITY;
-import static com.example.urlshortner.UrlShortenerConstants.ROLES;
+import static com.example.urlshortner.UrlShortenerConstants.*;
 
 @Service
 public class JwtService {
 
-    @Value("${jwt.expiration}")
-    private int jwtExpirationMs;
-    @Value("${jwt.secret}")
-    private String jwtSecret;
+    private final int jwtExpirationMs;
+    private final String jwtSecret;
     private SecretKey key;
+
+    public JwtService(CachedPropertyService cachedPropertyService) {
+        this.jwtExpirationMs = Integer.parseInt(cachedPropertyService.getAppProperty(JWT_EXPIRATION).getValue());
+        this.jwtSecret = cachedPropertyService.getAppProperty(JWT_SECRET).getValue();
+    }
 
     // Initializes the key after the class is instantiated and the jwtSecret is injected,
     // preventing the repeated creation of the key and enhancing performance

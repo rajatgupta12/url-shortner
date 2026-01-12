@@ -19,7 +19,7 @@ public class UrlMappingService {
     private final IdGeneratorService idGeneratorService;
     private final HttpServletRequest httpServletRequest;
 
-    public UrlMappingResponse createUrlMapping(String longUrl) {
+    public UrlMappingResponse createUrlMapping(String longUrl, String username) {
         //Fetch next Id ith Salting
         Long nextId = idGeneratorService.getNextId();
 
@@ -31,6 +31,7 @@ public class UrlMappingService {
         UrlMapping urlMapping = UrlMapping.builder()
                 .id(shortUrlKey)
                 .longUrl(longUrl)
+                .createdBy(username)
                 .createdOn(LocalDateTime.now()).build();
         urlMappingRepository.save(urlMapping);
 

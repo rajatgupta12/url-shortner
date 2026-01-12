@@ -19,5 +19,7 @@ public class UrlMapping {
 
     private String longUrl;
 
+    private String createdBy;
+
     private LocalDateTime createdOn;
 }
